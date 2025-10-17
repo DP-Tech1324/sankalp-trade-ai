@@ -27,3 +27,7 @@ app.include_router(trades_csv.router)
 @app.get("/")
 def root():
     return {"status": "ok", "message": "Sankalp Trade AI backend running"}
+
+@app.get("/health")
+def health_check():
+    return {"status": "healthy", "uptime": "ok"}
