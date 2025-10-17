@@ -1,5 +1,5 @@
 # vercel_app.py
-from backend.main import app  # import your FastAPI instance
+from main import app  # import your FastAPI instance
 
 
 # Vercel looks for "app" by default
