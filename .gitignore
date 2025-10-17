@@ -1,0 +1,52 @@
+# --- Core Python ignores ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Virtual environments ---
+.venv/
+venv/
+env/
+ENV/
+
+# --- Environment & secrets ---
+.env
+.env.*
+*.pem
+*.key
+
+# --- IDEs and editors ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+
+# --- OS files ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Logs & cache ---
+*.log
+*.tmp
+*.cache
+*.pid
+
+# --- Build / package directories ---
+dist/
+build/
+*.egg-info/
+
+# --- Frontend build output ---
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/dist/
+frontend/.vercel/
+
+# --- Backend specific ---
+backend/__pycache__/
+backend/.pytest_cache/
+backend/.mypy_cache/
+backend/__init__.pyc

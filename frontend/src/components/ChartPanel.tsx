@@ -1,0 +1,11 @@
+export default function ChartPanel(){
+  // Placeholder for a chart; integrate Recharts or TradingView widget later.
+  return (
+    <div className="bg-white rounded p-4 shadow">
+      <h2 className="font-semibold mb-2">Price Chart (placeholder)</h2>
+      <div className="h-40 bg-gray-100 rounded flex items-center justify-center text-gray-500">
+        Coming soon
+      </div>
+    </div>
+  );
+}
