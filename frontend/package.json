@@ -9,16 +9,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "axios": "^1.7.2",
+    "axios": "^1.12.2",
     "framer-motion": "^12.23.24",
+    "lodash": "^4.17.21",
     "lucide-react": "^0.545.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.9.4",
-    "recharts": "^3.2.1",
+    "recharts": "^2.8.0",
     "redux": "^4.2.1"
   },
   "devDependencies": {
+    "@types/lodash": "^4.17.20",
     "@types/react": "^18.3.26",
     "@types/react-dom": "^18.3.7",
     "autoprefixer": "^10.4.19",

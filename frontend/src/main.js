@@ -1,0 +1,11 @@
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import Settings from "./pages/Settings";
+import ImportWizard from "./pages/ImportWizard";
+import AiChatBubble from "./components/AiChatBubble";
+import { TradeProvider } from "./context/TradeContext";
+import "./styles.css";
+ReactDOM.createRoot(document.getElementById("root")).render(_jsx(React.StrictMode, { children: _jsx(TradeProvider, { children: _jsxs(BrowserRouter, { children: [_jsx(AiChatBubble, {}), _jsxs(Routes, { children: [_jsx(Route, { path: "/", element: _jsx(Dashboard, {}) }), _jsx(Route, { path: "/import", element: _jsx(ImportWizard, {}) }), _jsx(Route, { path: "/settings", element: _jsx(Settings, {}) })] })] }) }) }));
