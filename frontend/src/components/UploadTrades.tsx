@@ -1,24 +1,38 @@
 import { useState } from "react";
 import axios from "axios";
 
-const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:8000";
-
+// Use relative path in production, fallback to localhost for local dev
+const API_BASE =
+  import.meta.env.VITE_API_BASE ||
+  (window.location.hostname === "localhost"
+    ? "http://localhost:8000/api"
+    : "/api");
 export default function UploadTrades({ onUploaded }: { onUploaded: () => void }) {
   const [file, setFile] = useState<File | null>(null);
   const [status, setStatus] = useState<string>("");
 
   const handleUpload = async () => {
     if (!file) return alert("Select a CSV file first!");
-    setStatus("Uploading...");
+    setStatus("Uploading and processing...");
+
     try {
+      // 1️⃣ Upload CSV for preview
       const formData = new FormData();
       formData.append("file", file);
-      const res = await axios.post(`${API_BASE}/trades/upload`, formData, {
+
+      const preview = await axios.post(`${API_BASE}/trades/preview`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
-      setStatus(`✅ Imported ${res.data.rows_imported} trades`);
+
+      // 2️⃣ Import parsed rows into DB
+      const importRes = await axios.post(`${API_BASE}/trades/import`, {
+        rows: preview.data.rows,
+      });
+
+      setStatus(`✅ Imported ${importRes.data.rows_imported} trades`);
       onUploaded(); // refresh journal
     } catch (err: any) {
+      console.error(err);
       setStatus("❌ Upload failed: " + (err.response?.data?.detail || err.message));
     }
   };
